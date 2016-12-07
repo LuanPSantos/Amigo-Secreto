@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Amigo Secreto</title>
+
+    <!-- Última versão CSS compilada e minificada -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- JQuery -->
+    <script  src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <!-- Última versão JavaScript compilada e minificada -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCSQFTDNY2JN-vvwYSoWqeye4Ik4Z8ca_A",
+        authDomain: "amigo-secreto-1b91d.firebaseapp.com",
+        databaseURL: "https://amigo-secreto-1b91d.firebaseio.com",
+        storageBucket: "amigo-secreto-1b91d.appspot.com",
+        messagingSenderId: "1091128416900"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/estilo.css">
+  </head>
+  <body class="containter-fluid">
+    <header class="row">
+      <nav class="col-lg-12">
+        <a class="btn btn-default" href="index.html" role="button">Home</a>
+        <a class="btn btn-default" href="cadastro.html" role="button">Cadastrar</a>
+        <a class="btn btn-danger margin-right" href="entrar.html" role="button">Entrar</a>
+      </nav>
+    </header>
+    <main>
+        <div class="row margin-bottom">
+          <figure class="col-lg-2 col-lg-offset-2">
+            <img class="img-thumbnail" src="imagens/aninha.png" alt="">
+          </figure>
+          <article class="col-lg-3">
+            <h4 id="nome-usuario">Ana Caroline</h4>
+            <p id="idade-usuario">21 anos</p>
+            <table class="table">
+              <tr>
+                <th>Camiseta</th>
+                <td id="camiseta-usuario">M adulto</td>
+              </tr>
+              <tr>
+                <th>Calça</th>
+                <td id="calca-usuario">36</td>
+              </tr>
+              <tr>
+                <th>Sapto</th>
+                <td id="sapato-usuario">36</td>
+              </tr>
+            </table>
+          </article>
+        </div>
+
+        <div class="row margin-bottom">
+          <section class="col-lg-8 col-lg-offset-2">
+            <h4>Sobre a Ana</h4>
+            <span id="sobre-usuario">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec nunc dui. Integer consectetur justo turpis. In enim arcu, eleifend ut est in, bibendum ultrices sapien. In id risus tortor. Donec tempor bibendum imperdiet. In congue fringilla luctus. Phasellus vel sollicitudin lorem, non efficitur sem.
+            </span>
+          </section>          
+        </div>
+
+        <div class="row">
+          <section class="col-lg-4 col-lg-offset-4">
+            <table class="table">
+              <tr>
+                <th>Gosta</th>
+                <th>Não gosta</th>
+              </tr>
+              <tr>
+                <th id="gosta-item-1">item 1</th>
+                <th id="nao-gosta-item-1">Item 1</th>
+              </tr>
+              <tr>
+                <th id="gosta-item-2">Item 2</th>
+                <th id="não-gosta-item-2">Item 2</th>
+              </tr>
+              <tr>
+                <th id="gosta-item-3">item 3</th>
+                <th id="não-gosta-item-3">Item 3</th>
+              </tr>
+            </table>
+          </section>
+        </div>
+    </main>
+  </body>
+</html>

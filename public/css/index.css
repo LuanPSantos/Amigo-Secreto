@@ -1,0 +1,23 @@
+#logo{
+    margin-top: 12%;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#form-pesquisa{
+    text-align: center;
+    outline: none;
+}
+
+#form-pesquisa button{
+    margin-top: 10px;
+}
+
+#login-conteiner{
+    position: absolute;
+}
+
+.cinza{
+    background-color: gray;
+    padding: 20px;
+}
