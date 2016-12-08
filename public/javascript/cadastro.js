@@ -52,8 +52,8 @@ function salvarDados(idUsuario){
         'naoGosta':naoGostaUsuario,
         'sobre':sobreUsuario
     };
-
+    
     firebase.database().ref('usuarios/' + idUsuario).set(dados).then(function(){
-        window.location.assign("usuario.html");  
+          window.location.assign("usuario.html");     
     });
 }

@@ -21,3 +21,12 @@
     background-color: gray;
     padding: 20px;
 }
+
+#resultado{
+    margin-top: 30px;
+}
+
+.resultado{
+    border-radius: 5px;
+    padding: 0px 0px 5px 40px;
+}

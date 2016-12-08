@@ -9,3 +9,16 @@ main section{
 #conteiner-preview{
     
 }*/
+
+/* usuario*/
+#barra-de-load{
+    background-color: mediumseagreen;
+    position: absolute;
+    margin-top: -10px;
+    width: calc(0% - 30px);
+    height: 5px;
+}
+
+#conteiner-preview figure{
+    text-align: center;
+}

@@ -29,13 +29,13 @@ window.onload = function(){
     };
 
     formUsuario.onsubmit = function(evt){
-        
         evt.preventDefault();
         evt.stopPropagation();
 
         var emailUsuario    = document.getElementById("email-usuario").value;
         var senhaUsuario    = document.getElementById("senha-usuario").value;
         var nomeUsuario     = document.getElementById("nome-usuario").value;
+        var fotoUsuario     = document.getElementById("preview-foto").src;
         var nascUsuario     = document.getElementById("nascimento-usuario").value;
         var camisetaUsuario = document.getElementById("camiseta-usuario").value;
         var calcaUsuario    = document.getElementById("calca-usuario").value;
@@ -49,7 +49,43 @@ window.onload = function(){
             naoGostaUsuario[i]  = document.getElementsByClassName("nao-gosta-usuario")[i].value;
         } 
 
+        var user = firebase.auth().currentUser;
+        if(senhaUsuario.toString().length >= 6){
+            user.updatePassword(senhaUsuario).then(function() {
+            }, function(error) {
+                console.log(error);
+            }).then(function(){
+                var credential = firebase.auth.EmailAuthProvider.credential(
+                    user.email, 
+                    senhaUsuario
+                );
 
+                user.reauthenticate(credential).then(function() {
+                    window.location.assign("usuario.html"); 
+                }, function(error) {
+                    console.log(error);
+                });
+            });
+        }
+
+        user.updateEmail(emailUsuario).then(function() {
+        }, function(error) {
+            console.log(error);
+        });
+
+        var dados = {
+            'nome':nomeUsuario,
+            'nascimento':nascUsuario,
+            'camiseta':camisetaUsuario,
+            'calca':calcaUsuario,
+            'sapato':sapatoUsuario,
+            'gosta':gostaUsuario,
+            'naoGosta':naoGostaUsuario,
+            'sobre':sobreUsuario,
+            'foto':fotoUsuario
+        };
+
+        firebase.database().ref('usuarios/' + user.uid).set(dados);
     };
 
     document.getElementById("foto-usuario").addEventListener("change", salvarFoto, false);
@@ -59,7 +95,7 @@ function start(){
     var user = firebase.auth().currentUser;
 
     firebase.storage().ref().child('usuarios/' + user.uid + '/foto').getDownloadURL().then(function(url){
-        console.log("url " + url);
+        //console.log("url " + url);
         document.getElementById("preview-foto").src = url;
     }).catch(function(error){
         document.getElementById("preview-foto").src = 'https://firebasestorage.googleapis.com/v0/b/amigo-secreto-1b91d.appspot.com/o/foto-padrao.png?alt=media&token=59b325d0-0cda-4e5c-8e6c-f4129ba92597';      
@@ -103,7 +139,7 @@ function salvarFoto(e){
     var uploadTask = storageRef.child('usuarios/'+ idUsuario + '/foto').put(fotoUsuario, metaData);
     uploadTask.on('state_changed', function(snapshot){
         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log('Upload is ' + progress + '% done');
+        //console.log('Upload is ' + progress + '% done');
         document.getElementById("barra-de-load").style.width = 'calc(' + progress + '% - 30px)';
     }, function(error) {
         console.error('Upload failed:', error);
