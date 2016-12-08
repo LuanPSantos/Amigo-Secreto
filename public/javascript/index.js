@@ -32,7 +32,7 @@ function exibirResultados(resultado){
         console.log(url);
         var html = 
         '<div class="resultado row">'+
-            '<article class="col-lg-6 col-lg-offset-3 box-shadow-personalizado">'+
+            '<article class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1  box-shadow-personalizado">'+
             '<h3><a href="'+ url +'">'+ resultado[i].nome +'</a></h3>'+
             '</article>'+
         '</div>';
