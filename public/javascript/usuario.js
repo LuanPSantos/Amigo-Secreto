@@ -94,6 +94,9 @@ window.onload = function(){
 function start(){
     var user = firebase.auth().currentUser;
 
+    if(!user)
+        window.location.assign("entrar.html");
+
     firebase.storage().ref().child('usuarios/' + user.uid + '/foto').getDownloadURL().then(function(url){
         //console.log("url " + url);
         document.getElementById("preview-foto").src = url;
